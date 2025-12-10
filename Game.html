@@ -7,14 +7,14 @@
 <link rel="stylesheet" href="WS.css">
 <link rel="icon" type="image/x-icon" href="WS.ico">
 <style>
-body { font-family: Arial, sans-serif; background: #f2f2f2; padding: 20px; }
-.container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
-h1, h2 { text-align: center; }
-.word, .draggable-word { display: inline-block; margin: 2px; padding: 5px 10px; border-radius: 5px; cursor: pointer; background: #ddd; }
-.selected { background: #ffcccb; }
-.blanks span { display: inline-block; width: 120px; margin: 2px; border-bottom: 2px solid black; text-align: center; }
-input { margin: 5px 0; padding: 5px; width: 100%; }
-button { margin-top: 10px; padding: 10px 15px; cursor: pointer; }
+    body { font-family: Arial, sans-serif; background: #f2f2f2; padding: 20px; }
+    .container { max-width: 700px; margin: auto; background: white; padding: 20px; border-radius: 10px; }
+    h1, h2 { text-align: center; }
+    .word, .draggable-word { display: inline-block; margin: 2px; padding: 5px 10px; border-radius: 5px; cursor: pointer; background: #ddd; }
+    .selected { background: #ffcccb; }
+    .blanks span { display: inline-block; width: 100px; margin: 2px; border-bottom: 2px solid black; text-align: center; }
+    input { margin: 5px 0; padding: 5px; width: 100%; }
+    button { margin-top: 10px; padding: 10px 15px; cursor: pointer; }
 </style>
 </head>
 <body>
@@ -22,34 +22,33 @@ button { margin-top: 10px; padding: 10px 15px; cursor: pointer; }
 <div class="container">
     <h1>Word Switch Game</h1>
 
-    <!-- Round info -->
     <div id="round-info">
         <p>Round: <span id="round-number">1</span></p>
-        <p>Current Player: <span id="current-player">Player 1</span></p>
+        <p>Current Player: <span id="current-player"></span></p>
     </div>
 
-    <!-- Writer section -->
+    <!-- Writer Section -->
     <div id="writer-section">
         <h2>Write your sentence</h2>
         <textarea id="sentence-input" rows="3" placeholder="Write a sentence..."></textarea><br>
         <button id="submit-sentence">Submit Sentence</button>
     </div>
 
-    <!-- Word selection -->
+    <!-- Word Selection -->
     <div id="selection-section" style="display:none;">
         <h2>Select words to remove</h2>
         <div id="words-container"></div>
         <button id="finish-selection">Finish Selection</button>
     </div>
 
-    <!-- Fake word submission -->
+    <!-- Fake Word Submission -->
     <div id="fake-word-section" style="display:none;">
-        <h2>Submit your fake words</h2>
+        <h2>Submit fake words</h2>
         <div id="fake-word-inputs"></div>
         <button id="submit-fakes">Submit Fake Words</button>
     </div>
 
-    <!-- Drag-and-drop section -->
+    <!-- Drag-and-Drop Reveal -->
     <div id="drag-section" style="display:none;">
         <h2>Fill in the blanks</h2>
         <div class="blanks" id="blanks-container"></div>
@@ -57,11 +56,11 @@ button { margin-top: 10px; padding: 10px 15px; cursor: pointer; }
         <button id="submit-drag">Submit Answers</button>
     </div>
 
-    <!-- Reveal results -->
+    <!-- Reveal Results -->
     <div id="results-section" style="display:none;">
         <h2>Round Results</h2>
-        <div id="revealed-sentence"></div>
-        <div id="player-submissions"></div>
+        <p id="revealed-sentence"></p>
+        <div id="player-results"></div>
         <button id="next-round">Next Round</button>
     </div>
 
@@ -72,7 +71,7 @@ button { margin-top: 10px; padding: 10px 15px; cursor: pointer; }
     </div>
 </div>
 
-<script type="module" src="Game.js"></script>
+<script type="module" src="WS-firebase.js"></script>
+<script type="module" src="game.js"></script>
 </body>
 </html>
-
