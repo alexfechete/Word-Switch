@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap');
+
+
+/** Index section **/
+.Homepage{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Button-1 {
+  background: #2ECC71;
+  color: white;
+  border-color: black;
+  font-family: 'Caveat', cursive; /* scribbly font */
+  font-size: 20px;
+  padding: 12px 30px;
+  background: white;
+  color: black;
+  border: 2px solid black;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+
+  /* rounded but slightly square edges */
+  border-radius: 15px;
+
+  /* messy outline */
+  box-shadow:
+    2px 2px 0 0 black,
+    -2px -1px 0 0 black,
+    1px -2px 0 0 black;
+  margin: 20px;
+}
+
+/* pseudo-elements to enhance scribbly effect */
+.Button-1::before,
+.Button-1::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 2px solid black;
+  border-radius: 15px; /* match the main button shape */
+  pointer-events: none;
+}
+
+/* slight rotation for hand-drawn feel */
+.Button-1::before {
+  transform: rotate(2deg);
+}
+
+.Button-1::after {
+  transform: rotate(-2deg);
+}
+
+.Button-1:hover {
+  animation: scribble 0.3s infinite alternate;
+}
+
+.Button-2 {
+  background: #3498DB;
+  color: white;
+  border-color: black;
+  font-family: 'Caveat', cursive; /* scribbly font */
+  font-size: 20px;
+  padding: 12px 30px;
+  background: white;
+  color: black;
+  border: 2px solid black;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+
+  /* rounded but slightly square edges */
+  border-radius: 15px;
+
+  /* messy outline */
+  box-shadow:
+    2px 2px 0 0 black,
+    -2px -1px 0 0 black,
+    1px -2px 0 0 black;
+}
+
+/* pseudo-elements to enhance scribbly effect */
+.Button-2::before,
+.Button-2::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: 2px solid black;
+  border-radius: 15px; /* match the main button shape */
+  pointer-events: none;
+}
+
+/* slight rotation for hand-drawn feel */
+.Button-2::before {
+  transform: rotate(2deg);
+}
+
+.Button-2::after {
+  transform: rotate(-2deg);
+}
+
+.Button-2:hover {
+  animation: scribble 0.3s infinite alternate;
+}
+
+@keyframes scribble {
+  0% {
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
+    transform: rotate(1deg);
+  }
+  25% {
+    text-shadow: -1px 1px 0 #000, 1px -1px 0 #000;
+    transform: rotate(-1deg);
+  }
+  50% {
+    text-shadow: 1px -1px 0 #000, -1px 1px 0 #000;
+    transform: rotate(1deg);
+  }
+  75% {
+    text-shadow: -1px -1px 0 #000, 1px 1px 0 #000;
+    transform: rotate(-1deg);
+  }
+  100% {
+    text-shadow: 1px 1px 0 #000, -1px -1px 0 #000;
+    transform: rotate(0deg);
+  }
+}
+
+.red{
+	color: #1271B5;
+}
+
+.blue{
+	color: #DB1414;
+}
+
+#Title{
+	font-family: 'Reenie Beanie', sans-serif;
+	font-size: 500%;
+}
+
+
+
+
+
+
+
+/** Create sction **/
+
+.top{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create_image{
+	width: 12%;
+	height: auto;
+}
+
+.middle{
+	display: flex;
+	border: 2px solid black;
+	width: 60%;
+	height: auto;
+	font-family: 'Caveat', cursive;
+	border-radius: 15px;
+	justify-content: center;
+	margin: 0 auto;
+	flex-direction: column;
+	padding-left: 10px;
+}
+
+.boxes {
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+
+  padding: 10px 16px;
+  margin-top: 6px;
+
+  background: #fff;
+  color: #000;
+
+  border: 2px solid black;
+  border-radius: 12px;   /* oval but slightly square */
+
+  outline: none;
+  box-shadow:
+    2px 2px 0 black,
+    -1px -1px 0 black;
+
+  transition: all 0.2s ease;
+}
+
+/* Focus effect */
+.boxes:focus {
+  transform: rotate(-1deg);
+  box-shadow:
+    3px 3px 0 black,
+    -2px -2px 0 black;
+}
+
+/* Hover effect */
+.boxes:hover {
+  transform: rotate(1deg);
+}
+}
+
+/* Focus effect (when clicking inside) */
+.boxes:focus {
+  transform: rotate(-1deg);
+  box-shadow:
+    3px 3px 0 black,
+    -2px -2px 0 black;
+}
+
+/* Hover effect */
+.boxes:hover {
+  transform: rotate(1deg);
+}
+
+.bottom{
+	display: flex;
+	justify-content: center;
+}

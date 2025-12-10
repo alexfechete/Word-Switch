@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="WS.css">
+		<link rel="icon" type="image/x-icon" href="WS.ico">
+		<title>Join game</title>
+	</head>
+	
+	<body>
+		<div class="top">
+			<img class="create_image" src="WS_homepage.webp" alt="Word Switch logo">
+		</div>
+		<div class="middle">
+			<h1>Join a Game</h1>
+			<section id="available-rooms">
+				<h2>Available Rooms</h2>
+				<ul id="rooms-list">
+				</ul>
+			</section>
+			<section id="manual-join">
+				<h2>Join by Room Name</h2>
+				<form id="join-form">
+					<label for="room-name">Room Name:</label>
+					<input class="boxes" type="text" id="room-name" name="room-name" required><br><br>
+					<label for="room-password">Password (if any):</label>
+					<input class="boxes" type="password" id="room-password" name="room-password"><br><br>
+					<button type="submit">Join Game</button>
+				</form>
+			</section>
+		</div>
+    <script src="Join.js"></script>
+	</body>
+</html>
