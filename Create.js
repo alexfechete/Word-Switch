@@ -1,11 +1,56 @@
-/** Create section **/
-const roomType = document.getElementById("privacy");
-const passwordBox = document.getElementById("passwordWrapper");
+import { ref, push, set } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
 
-roomType.addEventListener("change", () => {
-  if (roomType.value === "private") {
-    passwordBox.style.display = "block";
-  } else {
-    passwordBox.style.display = "none";
-  }
+const database = window.firebaseDatabase;
+
+// Elements
+const roomNameInput = document.getElementById('room-name');
+const maxPlayersSelect = document.getElementById('max-players');
+const maxRoundsSelect = document.getElementById('max-rounds');
+const maxTimeSelect = document.getElementById('max-time');
+const privacySelect = document.getElementById('privacy');
+const passwordWrapper = document.getElementById('passwordWrapper');
+const passwordInput = document.getElementById('password');
+const createRoomBtn = document.getElementById('create-room-btn');
+
+// Show/hide password input
+privacySelect.addEventListener('change', () => {
+    passwordWrapper.style.display = privacySelect.value === 'private' ? 'block' : 'none';
 });
+
+// Player name
+let playerName = prompt("Enter your name");
+
+// Reference to rooms
+const roomsRef = ref(database, 'rooms');
+
+// Create Room function
+function createRoom() {
+    const roomName = roomNameInput.value.trim();
+    if (!roomName) return alert("Enter a room name");
+
+    const maxPlayers = parseInt(maxPlayersSelect.value);
+    const maxRounds = parseInt(maxRoundsSelect.value);
+    const maxTime = parseInt(maxTimeSelect.value);
+    const privacy = privacySelect.value;
+    const password = privacy === 'private' ? passwordInput.value : '';
+
+    const newRoomRef = push(roomsRef);
+    set(newRoomRef, {
+        host: playerName,
+        roomName,
+        maxPlayers,
+        maxRounds,
+        maxTime,
+        privacy,
+        password,
+        started: false,
+        players: { [playerName]: true }
+    });
+
+    alert("Room created!");
+    // Redirect to game page if desired
+    // window.location.href = "game.html?room=" + newRoomRef.key;
+}
+
+// Attach event
+createRoomBtn.addEventListener('click', createRoom);
