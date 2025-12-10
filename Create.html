@@ -6,11 +6,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="WS.css">
     <link rel="icon" type="image/x-icon" href="WS.ico">
-    <title>Create game</title>
+    <title>Create Game</title>
 </head>
-
 <body>
-
     <div class="top">
         <img class="create_image" src="WS_Homepage.webp" alt="Word Switch logo">
     </div>
@@ -20,78 +18,55 @@
 
         <div>
             <h2>Room Name:</h2>
-            <input class="boxes" type="text" placeholder="My Room" id="room-name-input">
+            <input class="boxes" type="text" id="room-name-input" placeholder="My Room">
         </div>
 
         <div>
             <h2>Max Players:</h2>
-            <select class="boxes" name="players" id="max-players">
+            <select class="boxes" id="max-players">
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
                 <option value="5">5</option>
                 <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
             </select>
         </div>
 
         <div>
             <h2>Max Rounds:</h2>
-            <select class="boxes" name="rounds" id="max-rounds">
+            <select class="boxes" id="max-rounds">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
                 <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
             </select>
         </div>
 
         <div>
             <h2>Max Time (seconds):</h2>
-            <select class="boxes" name="time" id="max-time">
-                <option value="30">30s</option>
-                <option value="60">60s</option>
-                <option value="80">80s</option>
-                <option value="100">100s</option>
-                <option value="120">120s</option>
+            <select class="boxes" id="max-time">
+                <option value="30">30</option>
+                <option value="60">60</option>
+                <option value="90">90</option>
+                <option value="120">120</option>
             </select>
         </div>
 
         <div>
-            <h2 for="privacy">Room Privacy:</h2>
+            <h2>Room Privacy:</h2>
             <select class="boxes" id="privacy">
                 <option value="public">Public</option>
                 <option value="private">Private</option>
             </select>
-
             <div id="passwordWrapper" style="display: none; margin-top: 10px;">
-                <h2 for="password">Room Password:</h2>
+                <h2>Room Password:</h2>
                 <input class="boxes" type="text" id="password" placeholder="Enter a password">
             </div>
         </div>
-    </div>
 
-    <div class="bottom">
         <button id="create-room-btn">Create Game</button>
     </div>
 
-    <script src="WS-firebase.js" type="module"></script>
-    <script src="Create.js" type="module"></script>
+    <script type="module" src="Create.js"></script>
 </body>
 </html>
-
-
