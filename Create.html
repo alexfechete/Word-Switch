@@ -1,104 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="WS.css">
-		<link rel="icon" type="image/x-icon" href="WS.ico">
-		<title>Create game</title>
-	</head>
-	
-	<body>
-	
-		<div class="top">
-			<img class="create_image" src="WS_Homepage.webp" alt="Word Switch logo">
-		</div>
-	
-		<div class="middle">
-			<h1>
-				Create Room:
-			</h1>
-			
-			<div>
-				<h2>
-					Room Name:
-				</h2>
-				<input class="boxes" type="text" placeholder="My Room">
-		    </div>
-			
-			<div>
-				<h2>
-					Max Players:
-				</h2>
-				<select class="boxes" name="players">
-					<option value="2 players">2</option>
-					<option value="3 players">3</option>
-					<option value="4 players">4</option>
-					<option value="5 players">5</option>
-					<option value="6 players">6</option>
-					<option value="7 players">7</option>
-					<option value="8 players">8</option>
-					<option value="9 players">9</option>
-					<option value="10 players">10</option>
-					<option value="11 players">11</option>
-					<option value="12 players">12</option>
-					<option value="13 players">13</option>
-					<option value="14 players">14</option>
-					<option value="15 players">15</option>
-					<option value="16 players">16</option>
-				</select>
-		    </div>
-			
-			<div>
-				<h2>
-					Max Rounds:
-				</h2>
-				<select class="boxes" name="rounds">
-					<option value="1 rounds">1</option>
-					<option value="2 rounds">2</option>
-					<option value="3 rounds">3</option>
-					<option value="4 rounds">4</option>
-					<option value="5 rounds">5</option>
-					<option value="6 rounds">6</option>
-					<option value="7 rounds">7</option>
-					<option value="8 rounds">8</option>
-					<option value="9 rounds">9</option>
-					<option value="10 rounds">10</option>
-				</select>
-		    </div>
-			
-			<div>
-				<h2>
-					Max Time:
-				</h2>
-				<select class="boxes" name="time">
-					<option value="30 seconds">30s</option>
-					<option value="60 seconds">60s</option>
-					<option value="80 seconds">80s</option>
-					<option value="100 seconds">100s</option>
-					<option value="120 seconds">120s</option>
-				</select>
-		    </div>
-			
-			<div>
-				<h2 for="privacy">Room Privacy:</h2>
-				<select class="boxes" id="privacy">
-					<option value="public">Public</option>
-					<option value="private">Private</option>
-				</select>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="WS.css">
+<link rel="icon" type="image/x-icon" href="WS.ico">
+<title>Create Game</title>
+</head>
+<body>
 
-				<div id="passwordWrapper" style="display: none; margin-top: 10px;">
-					<h2 for="password">Room Password:</h2>
-					<input class="boxes" type="text" id="password" placeholder="Enter a password">
-				</div>
-		    </div>
-		</div>
-		
-		<div class="bottom">
-			<a class="Button-1" href="Game.html">Create Game</a>
-		</div>
-		<script src="WS.js"></script>
-	</body>
+<div class="top">
+    <img class="create_image" src="WS_Homepage.webp" alt="Word Switch logo">
+</div>
 
+<div class="middle">
+    <h1>Create Room</h1>
+
+    <div>
+        <h2>Room Name:</h2>
+        <input class="boxes" type="text" id="room-name" placeholder="My Room">
+    </div>
+
+    <div>
+        <h2>Max Players:</h2>
+        <select class="boxes" id="max-players">
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </div>
+
+    <div>
+        <h2>Max Rounds:</h2>
+        <select class="boxes" id="max-rounds">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+    </div>
+
+    <div>
+        <h2>Max Time (seconds):</h2>
+        <select class="boxes" id="max-time">
+            <option value="30">30</option>
+            <option value="60">60</option>
+            <option value="80">80</option>
+            <option value="100">100</option>
+            <option value="120">120</option>
+        </select>
+    </div>
+
+    <div>
+        <h2>Room Privacy:</h2>
+        <select class="boxes" id="privacy">
+            <option value="public">Public</option>
+            <option value="private">Private</option>
+        </select>
+
+        <div id="passwordWrapper" style="display: none; margin-top: 10px;">
+            <h2>Password:</h2>
+            <input class="boxes" type="text" id="password" placeholder="Enter password">
+        </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button id="create-room-btn" class="Button-1">Create Game</button>
+    </div>
+</div>
+
+<!-- Firebase SDK -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDh8YHXxt7XcXcgnhpMDohysv6w9vMUjHI",
+    authDomain: "word-switch-806bd.firebaseapp.com",
+    projectId: "word-switch-806bd",
+    storageBucket: "word-switch-806bd.firebasestorage.app",
+    messagingSenderId: "675507969336",
+    appId: "1:675507969336:web:b1e5e49c7c0f6fe87675cd",
+    measurementId: "G-6T9HQT5H18"
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+window.firebaseDatabase = database;
+</script>
+
+<script type="module" src="create.js"></script>
+</body>
 </html>
