@@ -17,8 +17,8 @@ privacySelect.addEventListener('change', () => {
     passwordWrapper.style.display = privacySelect.value === 'private' ? 'block' : 'none';
 });
 
-// Player name
-let playerName = prompt("Enter your name");
+// Placeholder for playerName (set from index.html later)
+let playerName = window.playerName || "HOST"; // default fallback
 
 // Reference to rooms
 const roomsRef = ref(database, 'rooms');
@@ -48,7 +48,7 @@ function createRoom() {
     });
 
     alert("Room created!");
-    // Redirect to game page if desired
+    // Optional: redirect to game page
     // window.location.href = "game.html?room=" + newRoomRef.key;
 }
 
