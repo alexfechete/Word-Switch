@@ -1,54 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Create Game</title>
-<link rel="stylesheet" href="WS.css">
-<link rel="icon" type="image/x-icon" href="WS.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="WS.css">
+    <link rel="icon" type="image/x-icon" href="WS.ico">
+    <title>Create game</title>
 </head>
+
 <body>
 
-<div class="top">
-    <img class="create_image" src="WS_Homepage.webp" alt="Word Switch logo">
-</div>
-
-<div class="middle">
-    <h1>Create Room</h1>
-
-    <label>Room Name:</label>
-    <input class="boxes" type="text" id="room-name-input" placeholder="My Room">
-
-    <label>Max Players:</label>
-    <select class="boxes" id="max-players-select">
-        ${Array.from({length: 16}, (_, i) => `<option value="${i+2}">${i+2}</option>`).join('')}
-    </select>
-
-    <label>Max Rounds:</label>
-    <select class="boxes" id="max-rounds-select">
-        ${Array.from({length: 10}, (_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
-    </select>
-
-    <label>Max Time (seconds):</label>
-    <select class="boxes" id="max-time-select">
-        ${[30,60,80,100,120].map(t=>`<option value="${t}">${t}</option>`).join('')}
-    </select>
-
-    <label>Room Privacy:</label>
-    <select class="boxes" id="privacy">
-        <option value="public">Public</option>
-        <option value="private">Private</option>
-    </select>
-
-    <div id="passwordWrapper" style="display:none; margin-top:10px;">
-        <label>Room Password:</label>
-        <input class="boxes" type="text" id="password" placeholder="Enter a password">
+    <div class="top">
+        <img class="create_image" src="WS_Homepage.webp" alt="Word Switch logo">
     </div>
 
-    <button id="create-game-btn">Create Game</button>
-</div>
+    <div class="middle">
+        <h1>Create Room:</h1>
 
-<script src="WS-firebase.js" type="module"></script>
-<script src="Create.js" type="module"></script>
+        <div>
+            <h2>Room Name:</h2>
+            <input class="boxes" type="text" placeholder="My Room" id="room-name-input">
+        </div>
+
+        <div>
+            <h2>Max Players:</h2>
+            <select class="boxes" name="players" id="max-players">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+            </select>
+        </div>
+
+        <div>
+            <h2>Max Rounds:</h2>
+            <select class="boxes" name="rounds" id="max-rounds">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+
+        <div>
+            <h2>Max Time (seconds):</h2>
+            <select class="boxes" name="time" id="max-time">
+                <option value="30">30s</option>
+                <option value="60">60s</option>
+                <option value="80">80s</option>
+                <option value="100">100s</option>
+                <option value="120">120s</option>
+            </select>
+        </div>
+
+        <div>
+            <h2 for="privacy">Room Privacy:</h2>
+            <select class="boxes" id="privacy">
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+            </select>
+
+            <div id="passwordWrapper" style="display: none; margin-top: 10px;">
+                <h2 for="password">Room Password:</h2>
+                <input class="boxes" type="text" id="password" placeholder="Enter a password">
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <a class="Button-1" href="Game.html" id="create-room-btn">Create Game</a>
+    </div>
+
+    <script src="WS-firebase.js"></script>
+    <script src="Create.js"></script>
 </body>
 </html>
