@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+<title>Create Game</title>
 <link rel="stylesheet" href="WS.css">
 <link rel="icon" type="image/x-icon" href="WS.ico">
-<title>Create Game</title>
 </head>
 <body>
 
@@ -17,87 +16,39 @@
 <div class="middle">
     <h1>Create Room</h1>
 
-    <div>
-        <h2>Room Name:</h2>
-        <input class="boxes" type="text" id="room-name" placeholder="My Room">
+    <label>Room Name:</label>
+    <input class="boxes" type="text" id="room-name-input" placeholder="My Room">
+
+    <label>Max Players:</label>
+    <select class="boxes" id="max-players-select">
+        ${Array.from({length: 16}, (_, i) => `<option value="${i+2}">${i+2}</option>`).join('')}
+    </select>
+
+    <label>Max Rounds:</label>
+    <select class="boxes" id="max-rounds-select">
+        ${Array.from({length: 10}, (_, i) => `<option value="${i+1}">${i+1}</option>`).join('')}
+    </select>
+
+    <label>Max Time (seconds):</label>
+    <select class="boxes" id="max-time-select">
+        ${[30,60,80,100,120].map(t=>`<option value="${t}">${t}</option>`).join('')}
+    </select>
+
+    <label>Room Privacy:</label>
+    <select class="boxes" id="privacy">
+        <option value="public">Public</option>
+        <option value="private">Private</option>
+    </select>
+
+    <div id="passwordWrapper" style="display:none; margin-top:10px;">
+        <label>Room Password:</label>
+        <input class="boxes" type="text" id="password" placeholder="Enter a password">
     </div>
 
-    <div>
-        <h2>Max Players:</h2>
-        <select class="boxes" id="max-players">
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-    </div>
-
-    <div>
-        <h2>Max Rounds:</h2>
-        <select class="boxes" id="max-rounds">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-    </div>
-
-    <div>
-        <h2>Max Time (seconds):</h2>
-        <select class="boxes" id="max-time">
-            <option value="30">30</option>
-            <option value="60">60</option>
-            <option value="80">80</option>
-            <option value="100">100</option>
-            <option value="120">120</option>
-        </select>
-    </div>
-
-    <div>
-        <h2>Room Privacy:</h2>
-        <select class="boxes" id="privacy">
-            <option value="public">Public</option>
-            <option value="private">Private</option>
-        </select>
-
-        <div id="passwordWrapper" style="display: none; margin-top: 10px;">
-            <h2>Password:</h2>
-            <input class="boxes" type="text" id="password" placeholder="Enter password">
-        </div>
-    </div>
-
-    <div style="margin-top: 20px;">
-        <button id="create-room-btn" class="Button-1">Create Game</button>
-    </div>
+    <button id="create-game-btn">Create Game</button>
 </div>
 
-<!-- Firebase SDK -->
-<script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
-
-const firebaseConfig = {
-    apiKey: "AIzaSyDh8YHXxt7XcXcgnhpMDohysv6w9vMUjHI",
-    authDomain: "word-switch-806bd.firebaseapp.com",
-    projectId: "word-switch-806bd",
-    storageBucket: "word-switch-806bd.firebasestorage.app",
-    messagingSenderId: "675507969336",
-    appId: "1:675507969336:web:b1e5e49c7c0f6fe87675cd",
-    measurementId: "G-6T9HQT5H18"
-};
-
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
-window.firebaseDatabase = database;
-</script>
-
-<script type="module" src="Create.js"></script>
+<script src="WS-firebase.js" type="module"></script>
+<script src="Create.js" type="module"></script>
 </body>
 </html>
-
