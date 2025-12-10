@@ -229,15 +229,30 @@ submitDragBtn.addEventListener('click', async () => {
     });
     await update(roomRef, updates);
 
-    // Show each player submission
-    playerResultsDiv.innerHTML = "";
-    players.forEach(p=>{
-        if(p === window.playerName) return;
-        const pDiv = document.createElement('div');
-        const fake = fakeWords[p].map((w,i)=>`${w} ${w===correctWords[i] ? '(✔)' : '(✖)'}`).join(', ');
-        pDiv.textContent = `${p}: ${fake}`;
-        playerResultsDiv.appendChild(pDiv);
+   // Show each player submission with full sentence
+playerResultsDiv.innerHTML = "";
+
+players.forEach(p => {
+    if (p === window.playerName) return; // skip current player
+
+    const pDiv = document.createElement('div');
+
+    // Get the sentence this player submitted for blanks
+    let playerSentence = [...words]; // start with original words
+    blanks.forEach((b, i) => {
+        const fakeWord = fakeWords[p][i];
+        if (fakeWord) playerSentence[b] = fakeWord; // fill in blanks with their fake words
     });
+
+    // Show each blank with correct/incorrect
+    const blanksStatus = blanks.map((b, i) => {
+        const placed = fakeWords[p][i];
+        return placed === correctWords[i] ? `${placed} (✔)` : `${placed} (✖)`;
+    });
+
+    pDiv.innerHTML = `<strong>${p}:</strong> ${playerSentence.join(" ")}<br>Blanks: ${blanksStatus.join(", ")}`;
+    playerResultsDiv.appendChild(pDiv);
+});
     updateScores();
 });
 
@@ -260,3 +275,4 @@ nextRoundBtn.addEventListener('click', async () => {
 
     updateRoundInfo();
 });
+
