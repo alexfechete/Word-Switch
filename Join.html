@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="WS.css">
-		<link rel="icon" type="image/x-icon" href="WS.ico">
-		<title>Join game</title>
-	</head>
-	
-	<body>
-		<div class="top">
-			<img class="create_image" src="WS_Homepage.webp" alt="Word Switch logo">
-		</div>
-		<div class="middle">
-			<h1>Join a Game</h1>
-			<section id="available-rooms">
-				<h2>Available Rooms</h2>
-				<ul id="rooms-list">
-				</ul>
-			</section>
-			<section id="manual-join">
-				<h2>Join by Room Name</h2>
-				<form id="join-form">
-					<label for="room-name">Room Name:</label>
-					<input class="boxes" type="text" id="room-name" name="room-name" required><br><br>
-					<label for="room-password">Password (if any):</label>
-					<input class="boxes" type="password" id="room-password" name="room-password"><br><br>
-					<button type="submit">Join Game</button>
-				</form>
-			</section>
-		</div>
-    <script src="Join.js"></script>
-	</body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Word Switch Lobby</title>
+</head>
+<body>
 
+<h1>Word Switch Lobby</h1>
+
+<!-- Create Room -->
+<input type="text" id="room-name-input" placeholder="Room name">
+<button id="create-room-btn">Create Room</button>
+
+<!-- Available Rooms -->
+<h2>Available Rooms</h2>
+<ul id="rooms-list"></ul>
+
+<!-- Firebase SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getDatabase } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-database.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDh8YHXxt7XcXcgnhpMDohysv6w9vMUjHI",
+    authDomain: "word-switch-806bd.firebaseapp.com",
+    projectId: "word-switch-806bd",
+    storageBucket: "word-switch-806bd.firebasestorage.app",
+    messagingSenderId: "675507969336",
+    appId: "1:675507969336:web:b1e5e49c7c0f6fe87675cd",
+    measurementId: "G-6T9HQT5H18"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // Make database accessible globally for the lobby script
+  window.firebaseDatabase = database;
+</script>
+
+<!-- Lobby JS -->
+<script type="module" src="game.js"></script>
+
+</body>
 </html>
