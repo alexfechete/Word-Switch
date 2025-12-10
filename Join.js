@@ -9,7 +9,7 @@ const manualRoomName = document.getElementById('manual-room-name');
 const manualRoomPassword = document.getElementById('manual-room-password');
 
 // Player name from index.html
-let playerName = window.playerName || "PLAYER";
+let playerName = window.playerName || "PLAYER"; // fallback if not set
 
 // Firebase reference
 const roomsRef = ref(database, 'rooms');
